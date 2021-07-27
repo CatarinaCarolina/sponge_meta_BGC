@@ -2,7 +2,8 @@
 
 """
 Author: Catarina Loureiro
-A script to take the Jaccard GCF matrix and compute ordination stats
+A script to take the Jaccard GCF matrix and compute ordination stats,
+and plot a PcoA
 """
 import argparse
 import pandas as pd
