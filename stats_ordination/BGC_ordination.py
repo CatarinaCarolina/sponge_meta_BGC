@@ -66,5 +66,11 @@ sns.set_style("white")
 sns.scatterplot(data=pcoa_df, x='PC1', y='PC2', hue='Label', palette=["#ffc410", "#c70e22", "#e86dd3", "#8a4bc9","#8d9091","#525454","#32a1ab","#14cdde"], alpha=0.75)
 plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 
+# # for visible label points on the plot
+# ax = plt.gca()
+# for row in pcoa_df.itertuples():
+#     print(row[0], row[1], row[2])
+#     ax.text(x=row[1]+.02, y=row[2], s=row[0], color='black', fontsize='xx-small')
+
 #plt.show()
 plt.savefig(pcoa_path, transparent=True, facecolor='None', format='pdf', edgecolor='None', pad_inches=0.5, bbox_inches='tight')
