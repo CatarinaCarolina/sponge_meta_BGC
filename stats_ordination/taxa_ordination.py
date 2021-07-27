@@ -2,7 +2,8 @@
 
 """
 Author: Catarina Loureiro
-A script to take a pariwise distance matrix and compute orditation stats
+A script to take a pariwise distance matrix, compute orditation stats,
+and plot a PcoA
 """
 import argparse
 import pandas as pd
