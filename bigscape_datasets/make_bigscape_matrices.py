@@ -387,6 +387,9 @@ if __name__ == '__main__':
 	sample_BGC_dict = total_sample(cmds.list_bgc, sample_list)
 	# parse bigscpae clustering file into GCF:BGCs and sample:GCFs
 	BGC_mix_dict, sample_GCF_dict = parse_clusteringf(cmds.big_mix, sample_list)
+	# save sample_mix_dict as pickle
+	outputting_dict(sample_GCF_dict, cmds.out, 'sample_GCF_dict')
+
 	# collapse BGCs into their sample of origin so GCF_nr:samples
 	sample_mix_dict = cluster_to_sample(BGC_mix_dict, sample_list)
 	# save sample_mix_dict as pickle
@@ -398,7 +401,6 @@ if __name__ == '__main__':
 	links_matrix = edit_link_df(empty_matrix, perm_mix_dict, sample_BGC_dict, sample_list)
 	# save GCF_links_matrix as pickle/tsv
 	outputting_df(links_matrix, cmds.out, 'links_matrix')
-
 
 	# compute df/dict samples x GCFs presence absence
 	GCF_dist_dict, GCF_dist_df = GCF_distribution(sample_mix_dict, sample_list)
