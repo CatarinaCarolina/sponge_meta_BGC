@@ -73,6 +73,18 @@ def get_samples(cluster_list):
 
 	return sample_names
 
+def create_matrix(sample_names):
+	"""
+	A function to create a paiwirse samples empty matrix
+
+	sample_names: list[str]
+	sample_empty: pd.Dataframe, samples x samples
+	"""
+	empty_df = pd.DataFrame(index=sample_names, columns=sample_names)
+	zero_df = empty_df.fillna(0)
+
+	return zero_df
+
 def parse_metadata(meta_file, sample_names):
 	"""
 	A function to parse metadata file into dict
@@ -167,22 +179,159 @@ def BGC_class_df(sample_BGC_class, class_list, sample_names):
 
 	return class_df
 
+def total_sample(cluster_list, sample_names):
+	"""
+	A function to get total BGCs/sample
+
+	cluster_list: str, txt file
+	sample_names: list[str]
+	sample_BGC: dict{sample:[BGCs]}
+	"""
+
+	sample_BGC = {name:[] for name in sample_names}
+	file_obj = open(cluster_list, 'r')
+
+	for line in file_obj:
+		words = line.strip().split()
+		cluster = words[0]
+		BS_class = words[4]
+		joined = cluster + '_' + BS_class
+		c_sample = cluster.split('c')[0]
+		for name in sample_names:
+			if name == c_sample:
+				sample_BGC[name].append(joined)
+				break
+
+	return sample_BGC
+
+def parse_clusteringf(big_mix_file, sample_names):
+	"""
+	A function to parse clustering file into GCF:BGCs and sample:GCFs
+
+	big_mix_file: str, tsv, BGC name - GCF number
+	big_mix_dict:dict{GCF_nr:[BGCs]}
+	GCF_count_dict: dict{sample:[GCFs]}
+	"""
+
+	big_mix_dict = {}
+	GCF_count_dict = {}
+	file_obj = open(big_mix_file, 'r')
+
+	for line in file_obj:
+		if line.startswith('#'):
+			continue
+		else:
+			words = line.strip().split()
+			BGC = words[0]
+			c_sample = BGC.split('c')[0]
+			GCF = words[1]
+			if GCF == '1254': # GCF composed of MiBIG only
+				continue
+			try:
+				big_mix_dict[GCF].append(BGC)
+			except KeyError:
+				big_mix_dict[GCF] = [BGC]
+
+			for sample in sample_names:
+				if sample == c_sample:
+					try:
+						if GCF not in GCF_count_dict[sample]:
+							GCF_count_dict[sample].append(GCF)
+					except KeyError:
+						GCF_count_dict[sample] = [GCF]
+
+	return (big_mix_dict, GCF_count_dict)
+
+def cluster_to_sample(big_mix_dict, sample_names):
+	"""
+	A function to replace clusters with their sample
+
+	big_mix_dict:dict{GCF_nr:[BGCs]}
+	big_sample_dict:dict{GCF_nr:[samples]}
+	"""
+
+	big_sample_dict = {GCF:[] for GCF in big_mix_dict.keys()}
+
+	for GCF, clusters in big_mix_dict.items():
+		for cluster in clusters:
+			c_sample = cluster.split('c')[0]
+			for sample in sample_names:
+				if sample == c_sample and sample not in big_sample_dict[GCF]:
+					big_sample_dict[GCF].append(sample)
+
+	return big_sample_dict
+
+def GCF_sample_combinations(big_sample_dict):
+	"""
+	A function to generate all permutations of samples in a GCF
+
+	big_sample_dict:dict{GCF_nr:[samples]}
+	combo_sample_dict:dict{GCF_nr:[sample-combos]}
+	"""
+	combo_sample_dict = {}
+
+	for GCF, clusters in big_sample_dict.items():
+		if len(clusters) == 1:
+			continue
+		else:
+			combo_sample_dict[GCF] = []
+			combo_sample_dict[GCF].extend(itertools.permutations(clusters, 2))
+
+	return combo_sample_dict
+
+
+def edit_link_df(zero_df, combo_sample_dict, sample_names, GCF_count_dict):
+	"""
+	A function to add link counts to df
+
+	combo_sample_dict:dict{GCF_nr:[sample-combos]}
+	zero_df: pd.Dataframe, zeroed
+	GCF_count_dict: dict{sample:[GCFs]}
+	link_df: pd.Dataframe, with added +1 links
+	"""
+
+	links_df = zero_df.copy()
+
+	for GCF, combos in combo_sample_dict.items():
+		for pair in combos:
+			A, B = pair
+			links_df.loc[A, B] += 1
+
+	for sample in sample_names:
+		links_df.loc[sample, sample] = 0
+
+	return links_df
+
 
 if __name__ == '__main__':
 
 	cmds = get_cmds()
 
-	# get list of all samples
+	# get list of all samples & create empty sample matrix
 	sample_list = get_samples(cmds.list_bgc)
+	empty_matrix = create_matrix(sample_list)
 
 	#process metadata file
 	sample_metadf = parse_metadata(cmds.metadata, sample_list)
 	#save metadf as pickle/tsv
 	outputting_df(sample_metadf, cmds.out, 'sample_meta_matrix')
 
-
 	# generate matrix of BGC class counts per sample
 	sample_BGC_class_dict, BGC_class_list = class_counts(cmds.list_bgc, sample_list)
 	BGC_class_matrix = BGC_class_df(sample_BGC_class_dict, BGC_class_list, sample_list)
 	# save BGC_class_matrix as pickle/tsv
 	outputting_df(BGC_class_matrix, cmds.out, 'BGC_class_matrix')
+
+	# get total BGCs/sample
+	sample_BGC_dict = total_sample(cmds.list_bgc, sample_list)
+	# parse bigscpae clustering file into GCF:BGCs and sample:GCFs
+	BGC_mix_dict, sample_GCF_dict = parse_clusteringf(cmds.big_mix, sample_list)
+	# collapse BGCs into their sample of origin so GCF_nr:samples
+	sample_mix_dict = cluster_to_sample(BGC_mix_dict, sample_list)
+
+	# generate all sample pair permutations within each GCF
+	perm_mix_dict = GCF_sample_combinations(sample_mix_dict)
+	# populate pairwise empty matrix with +1 for each GCF spanning a sample pair, diagonal is zeroed.
+	links_matrix = edit_link_df(empty_matrix, perm_mix_dict, sample_BGC_dict, sample_list)
+	# save GCF_links_matrix as pickle/tsv
+	links_file = outputting_df(links_matrix, cmds.out, 'links_matrix')
