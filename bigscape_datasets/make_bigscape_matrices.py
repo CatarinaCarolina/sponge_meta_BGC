@@ -8,23 +8,13 @@ A script to take the bigscape mix_clusterinf file and generate matrices
 
 import collections
 from collections import defaultdict
-from collections import OrderedDict
 import os
 import itertools
 import argparse
 import pandas as pd
-import numpy as np
-import random
 import sklearn
 import sklearn.metrics
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pyupset as pyu
-import upsetplot
-import math
 import pickle
-sns.set_style('white')
-from matplotlib.colors import ListedColormap
 
 def get_cmds():
 	"""
