@@ -76,7 +76,9 @@ def cluster_class_vis(df_pickle, new_cols, meta_pickle, out_file):
 
     plt.savefig(out_file, transparent=True, facecolor='None', format='pdf',\
                 edgecolor='None', pad_inches=0.5, bbox_inches='tight')
+    plt.close()
 
+    return None
 
 if __name__ == '__main__':
 
