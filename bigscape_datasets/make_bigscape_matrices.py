@@ -318,6 +318,51 @@ def edit_link_df(zero_df, combo_sample_dict, sample_names, GCF_count_dict):
 
 	return links_df
 
+def GCF_distribution(big_sample_dict, sample_names):
+	"""
+	A function to count presence of gcf in each sample
+
+	big_sample_dict:dict{GCF_nr:[samples]}
+	sample_names:list[str]
+	GCF_comp_dict: dict{GCF:{sample:int}} 0/1 presence absence
+	GCF_df: pd.DataFrame, samples x GCFs presence absence
+	"""
+
+	sample_cats = [name for name in sample_names]
+	GCF_comp_dict = {GCF: {} for GCF in big_sample_dict.keys()}
+
+	for GCF in big_sample_dict.keys():
+		for sample in sample_cats:
+			GCF_comp_dict[GCF][sample] = 0
+
+	for GCF, samples in big_sample_dict.items():
+		for sample in samples:
+			GCF_comp_dict[GCF][sample] = 1
+
+	GCF_df = pd.DataFrame.from_dict(GCF_comp_dict, orient='index')
+
+	return (GCF_comp_dict, GCF_df)
+
+def jaccard_links(GCF_df,zero_df,sample_names):
+	"""
+	A function to compute a jaccard index simil matrix
+
+	GCF_df: pd.DataFrame, samples x	GCFs presence absence
+	zero_df: pd.DataFrame, samples x samples
+	sample_names: list[str]
+	jaccard_links_df: pd.Dataframe samples x samples
+	"""
+
+	jaccard_links_df = zero_df.copy()
+	GCF_df = GCF_df.T
+
+	for sample1 in sample_names:
+		for sample2 in sample_names:
+			pa1 = GCF_df.loc[sample1].values
+			pa2 = GCF_df.loc[sample2].values
+			jaccard_links_df.loc[sample1,sample2] = sklearn.metrics.jaccard_score(pa1,pa2)
+
+	return jaccard_links_df
 
 if __name__ == '__main__':
 
@@ -354,3 +399,10 @@ if __name__ == '__main__':
 	# save GCF_links_matrix as pickle/tsv
 	outputting_df(links_matrix, cmds.out, 'links_matrix')
 
+
+	# compute df/dict samples x GCFs presence absence
+	GCF_dist_dict, GCF_dist_df = GCF_distribution(sample_mix_dict, sample_list)
+	# make jaccard index matrix from GCF links matrix
+	links_jaccard_matrix = jaccard_links(GCF_dist_df, empty_matrix, sample_list)
+	# save jaccard_links_matrix as pickle/tsv
+	outputting_df(links_jaccard_matrix, cmds.out, 'links_jaccard_matrix')
