@@ -22,6 +22,7 @@ import seaborn as sns
 import pyupset as pyu
 import upsetplot
 import math
+import pickle
 sns.set_style('white')
 from matplotlib.colors import ListedColormap
 
@@ -126,7 +127,23 @@ def outputting_df(df, out_prefix, matrix_name):
 	pickle_out = os.path.join(os.getcwd(), out_prefix + matrix_name + '.pickle')
 	df.to_pickle(pickle_out)
 
-	return path_out
+	return None
+
+def outputting_dict(in_dict, out_prefix, dict_name):
+	"""
+	A function to output dataframes
+
+	in_dict: dict{}
+	out_prefix: str
+	dict_name: str
+	path_out: str, tsv file
+	"""
+	path_out = os.path.join(os.getcwd(), out_prefix + dict_name + '.pickle')
+	file_obj = open(path_out, 'wb')
+	pickle.dump(in_dict, file_obj, pickle.HIGHEST_PROTOCOL)
+	file_obj.close()
+
+	return None
 
 def class_counts(cluster_list, sample_names):
 	"""
@@ -279,7 +296,6 @@ def GCF_sample_combinations(big_sample_dict):
 
 	return combo_sample_dict
 
-
 def edit_link_df(zero_df, combo_sample_dict, sample_names, GCF_count_dict):
 	"""
 	A function to add link counts to df
@@ -328,10 +344,13 @@ if __name__ == '__main__':
 	BGC_mix_dict, sample_GCF_dict = parse_clusteringf(cmds.big_mix, sample_list)
 	# collapse BGCs into their sample of origin so GCF_nr:samples
 	sample_mix_dict = cluster_to_sample(BGC_mix_dict, sample_list)
+	# save sample_mix_dict as pickle
+	outputting_dict(sample_mix_dict, cmds.out, 'sample_mix_dict')
 
 	# generate all sample pair permutations within each GCF
 	perm_mix_dict = GCF_sample_combinations(sample_mix_dict)
 	# populate pairwise empty matrix with +1 for each GCF spanning a sample pair, diagonal is zeroed.
 	links_matrix = edit_link_df(empty_matrix, perm_mix_dict, sample_BGC_dict, sample_list)
 	# save GCF_links_matrix as pickle/tsv
-	links_file = outputting_df(links_matrix, cmds.out, 'links_matrix')
+	outputting_df(links_matrix, cmds.out, 'links_matrix')
+
