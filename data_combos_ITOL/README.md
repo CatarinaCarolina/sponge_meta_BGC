@@ -1,4 +1,4 @@
-# series description
+# script series description for generation of figure 3
 
 ## GCF oriented descriptive dataset building
 
