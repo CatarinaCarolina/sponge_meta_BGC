@@ -59,6 +59,7 @@ def cluster_map_vis(matrix_file,new_cols, outname, log=False):
     #	plt.show()
     plt.savefig(outname, transparent=True, facecolor='None', format='pdf', \
                 edgecolor='None', pad_inches=0.5, bbox_inches='tight')
+    plt.close()
 
     return None
 
