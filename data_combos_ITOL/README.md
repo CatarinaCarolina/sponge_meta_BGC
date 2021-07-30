@@ -24,7 +24,7 @@ python3 from_contig_get_bin.py -i BGC_contig_class_gcf_sample.tsv -o BGC_contig_
 ### make bin_cluster info table bin_cluster bins rep_bin samples
 
 ```
-python3 compile_bin_cluster_info.py -r representative_genomes.txt -c dREP_out/data_tables/Cdb.csv -o cluster_rep_bins_samples_ap.tsv
+python3 compile_bin_cluster_info.py -r representative_genomes.txt -c Cdb.csv -o cluster_rep_bins_samples_ap.tsv
 ```
 
 ### add GCFs/classes to bin_rep oriented table
