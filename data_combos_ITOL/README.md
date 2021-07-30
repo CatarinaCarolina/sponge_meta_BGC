@@ -21,12 +21,6 @@ python3 from_contig_get_bin.py -i BGC_contig_class_gcf_sample.tsv -o BGC_contig_
 
 ## Dereplicated MAG oriented descriptive dataset building
 
-### get list of all dereplicated representative MAGs
-
-```
-ls dereplicated_genomes/ > representative_genomes.txt
-```
-
 ### make bin_cluster info table bin_cluster bins rep_bin samples
 
 ```
