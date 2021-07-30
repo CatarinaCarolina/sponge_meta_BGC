@@ -16,7 +16,7 @@ python3 BGC_to_GFC.py -i BGC_contig_class.tsv -g mix_clustering_c0.50.tsv -o BGC
 ### extract bin
 
 ```
-python3 from_contig_get_bin.py -i BGC_contig_class_gcf_sample.tsv -o BGC_contig_class_gcf_sample_bin_ap.tsv -b all_refined_bins
+python3 from_contig_get_bin.py -i BGC_contig_class_gcf_sample.tsv -o BGC_contig_class_gcf_sample_bin_ap.tsv -b all_refined_bins/
 ```
 
 ## Dereplicated MAG oriented descriptive dataset building
