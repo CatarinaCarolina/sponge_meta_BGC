@@ -42,14 +42,16 @@ def parse_file(ntu_file):
 	counts = []
 
 	for line in file_obj:
-		line = line.strip()
-		elm = line.split('\t')
-		taxa.append(elm[0])
-		if elm[0] not in taxa_uniq:
-			taxa_uniq.append(elm[0])
-		samples.append(elm[1])
-		counts.append(elm[2])
-	
+		if not line.startswith('Bac'):
+			continue
+		else:
+			line = line.strip()
+			elm = line.split('\t')
+			taxa.append(elm[0])
+			if elm[0] not in taxa_uniq:
+				taxa_uniq.append(elm[0])
+			samples.append(elm[1])
+			counts.append(elm[2])
 
 	return (taxa, taxa_uniq, samples, counts)
 
