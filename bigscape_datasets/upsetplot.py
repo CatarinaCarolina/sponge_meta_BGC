@@ -85,9 +85,7 @@ if __name__ == '__main__':
 
     cmds = get_cmds()
 
-    semigroup_samples = {'Aplysina': ['Aply16_', 'Aply21_', 'Aply22_', 'Aply23_'], \
-                         'Crambe': ['Cr15_', 'Cr50_', 'Cr90_'], \
-                         'Dysidea': ['Dys1.1_', 'Dys1.2_', 'Dys2.1_'], \
+    semigroup_samples = {'Aplysina': ['Aply16_', 'Aply21_', 'Aply22_', 'Aply23_'],\
                          'Geodia_NOR': ['gb1_', 'gb2_2_', 'gb3_2_', 'gb4_2_', 'gb5_2_', 'gb6_', 'gb7_', 'gb8_2_', \
                                         'gb9_', 'gb10_'], \
                          'Geodia_CAN': ['gb126_', 'gb278_', 'gb305_'], \
@@ -95,8 +93,7 @@ if __name__ == '__main__':
                          'Med_SW': ['sw_7_', 'sw_8_', 'sw_9_'], \
                          'Atl_SW': ['gb_1_f_', 'gb_2_f_', 'gb_f_3_', 'gb5_6_f_', 'gb_f_9_', 'gb10_f_']}
 
-    semigroup_list = ['Aplysina', 'Crambe', 'Dysidea', 'Geodia_NOR', 'Geodia_CAN', 'Petrosia', 'Med_SW', \
-                      'Atl_SW']
+    semigroup_list = ['Aplysina', 'Geodia_NOR', 'Geodia_CAN', 'Petrosia', 'Med_SW', 'Atl_SW']
 
     semi_sample_dict = GCF_transform_eco(cmds.mix_dict, semigroup_samples)
 
