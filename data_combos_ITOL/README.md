@@ -1,4 +1,4 @@
-# script series description for generation of figure 3
+# script series description for generation of the iTOL tree
 
 ## GCF oriented descriptive dataset building
 
@@ -20,6 +20,11 @@ python3 from_contig_get_bin.py -i BGC_contig_class_gcf_sample.tsv -o BGC_contig_
 ```
 
 ## Dereplicated MAG oriented descriptive dataset building
+
+capture representative/dereplicated genome names in a txt file
+```
+example representative_genomes.txt
+```
 
 ### make bin_cluster info table bin_cluster bins rep_bin samples
 
