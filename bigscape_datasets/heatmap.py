@@ -67,10 +67,10 @@ if __name__ == '__main__':
 
     cmds = get_cmds()
 
-    sorted_samples = ['Aply16_', 'Aply21_', 'Aply22_', 'Aply23_', 'Cr15_', 'Cr50_', 'Cr90_', 'Dys1.1_',\
-                      'Dys1.2_', 'Dys2.1_', 'Pf4_', 'Pf5_', 'Pf6_', 'Pf7_', 'Pf8_', 'Pf9_', 'Pf10_', 'Pf11_',\
-                      'Pf12_', 'gb1_', 'gb2_2_', 'gb3_2_', 'gb4_2_', 'gb5_2_', 'gb6_', 'gb7_', 'gb8_2_', 'gb9_',\
-                      'gb10_', 'gb126_', 'gb278_', 'gb305_', 'gb_1_f_', 'gb_2_f_', 'gb_f_3_', 'gb5_6_f_',\
-                      'gb_f_9_', 'gb10_f_', 'sw_7_', 'sw_8_', 'sw_9_']
+    sorted_samples = ['Aply16_', 'Aply21_', 'Aply22_', 'Aply23_', 'Pf4_', 'Pf5_', 'Pf6_',\
+                      'Pf7_', 'Pf8_', 'Pf9_', 'Pf10_', 'Pf11_', 'Pf12_', 'gb1_', 'gb2_2_',\
+                      'gb3_2_', 'gb4_2_', 'gb5_2_', 'gb6_', 'gb7_', 'gb8_2_', 'gb9_',\
+                      'gb10_', 'gb126_', 'gb278_', 'gb305_', 'gb_1_f_', 'gb_2_f_', 'gb_f_3_',\
+                      'gb5_6_f_', 'gb_f_9_', 'gb10_f_', 'sw_7_', 'sw_8_', 'sw_9_']
 
     cluster_map_vis(cmds.links, sorted_samples, cmds.out, log=True)
