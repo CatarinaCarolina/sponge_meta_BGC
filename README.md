@@ -1,4 +1,3 @@
-#Exploring the biosynthetic landscapes of three high microbial abundance marine sponge holobionts
 
 This is the Github repository for the scrips and input files used to perform the analysis described in this publication.
 
