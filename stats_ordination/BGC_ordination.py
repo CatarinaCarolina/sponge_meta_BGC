@@ -56,7 +56,7 @@ print(pcoa.proportion_explained)
 
 pcoa_df =pcoa.samples[['PC1','PC2']]
 
-labels = ["Aplysina aerophoba","Aplysina aerophoba","Aplysina aerophoba","Aplysina aerophoba","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Can","Geodia barretti Can","Geodia barretti Can","Seawater Atl","Seawater Atl","Seawater Atl","Seawater Atl","Seawater Atl","Seawater Atl","Seawater Med","Seawater Med","Seawater Med"]
+labels = meta_df['Species extra']
 
 pcoa_df.insert(2,'Label', labels)
 
