@@ -78,21 +78,41 @@ def build_ntu_ltable(taxa,taxa_uniq,samples,samples_ord,counts):
 		empties[s_ind][t_ind] = int(count)
 
 	return empties
-	
 
-def compute_braycurtis(empties, samples_nm, out_file):
+
+def compute_relative_abundance(empties):
+	"""
+    A function to normalize taxa table to rel abundance
+
+    empties: list[lists]: samples[taxa_uniq]
+    rel_empties: list[lists]: samples[taxa_uniq]
+    """
+
+	rel_empties = copy.deepcopy(empties)
+
+	for sample_row in range(len(empties)):
+		total_ntus = sum(empties[sample_row])
+		for taxon in range(len(empties[sample_row])):
+			rel_empties[sample_row][taxon] = empties[sample_row][taxon] / total_ntus
+	#       print(sum(rel_empties[sample_row]))
+
+	# print(rel_empties)
+
+	return rel_empties
+
+def compute_braycurtis(rel_empties, samples_nm, out_file):
 	"""
 	A function to build a braycurtis simil matrix
 
-	empties: list[lists]: samples[taxa_uniq]
+	rel_empties: list[lists]: samples[taxa_uniq]
 	samples_nm:list[]
 	"""
 	bc_matrix = [[0]*len(samples_nm) for i in range(len(samples_nm))]
 
-	for i_1 in range(len(empties)):
-		vals_1 = empties[i_1]
-		for i_2 in range(len(empties)):
-			vals_2 = empties[i_2]
+	for i_1 in range(len(rel_empties)):
+		vals_1 = rel_empties[i_1]
+		for i_2 in range(len(rel_empties)):
+			vals_2 = rel_empties[i_2]
 			bc_val = distance.braycurtis(vals_1,vals_2)
 			bc_matrix[i_1][i_2] = bc_val
 			
@@ -112,6 +132,6 @@ if __name__ == '__main__':
 	sample_n = ['Aply16', 'Aply21', 'Aply22', 'Aply23', 'Cr15', 'Cr50', 'Cr90', 'Dys1.1', 'Dys1.2', 'Dys2.1', 'Pf10', 'Pf11', 'Pf12', 'Pf4', 'Pf5', 'Pf6', 'Pf7', 'Pf8', 'Pf9','gb1', 'gb2_2', 'gb3_2', 'gb4_2', 'gb5_2', 'gb6', 'gb7', 'gb8_2', 'gb9', 'gb10','gb126', 'gb278', 'gb305', 'gb1_f', 'gb2_f', 'gb3_f', 'gb5_6_f', 'gb9_f', 'gb10_f', 'sw_7', 'sw_8', 'sw_9']
 
 	ntu_ltable = build_ntu_ltable(l_taxa,l_taxa_u,l_samples,sample_names,l_counts)
-
-	compute_braycurtis(ntu_ltable, sample_n, cmds.out)
+	rel_ntu_ltable = compute_relative_abundance(ntu_ltable)
+	compute_braycurtis(rel_ntu_ltable, sample_n, cmds.out)
 
