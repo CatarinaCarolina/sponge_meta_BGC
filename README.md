@@ -1,22 +1,22 @@
 
 This is the Github repository for the scrips and input files used to perform the analysis described in this publication.
 
-##Requirements:
+## Requirements:
 
 Please keep in mind that these scripts have only been tested in python3.
 
-###Input data:
+### Input data:
 
 - antiSMASH v5.0
 - BiG-SCAPE
 - MetaWRAP
 - dREP
 
-###Software:
+### Software:
 
 - Pyhton 3+
 
-###Pyhton Packages:
+### Pyhton Packages:
 
 - Argparse 
 - Pandas
