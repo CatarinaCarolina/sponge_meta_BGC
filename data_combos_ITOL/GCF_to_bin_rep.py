@@ -135,8 +135,6 @@ if __name__ == '__main__':
 	cmds = get_cmds()
 
 	ecogroup2_samples = {'Aplysina':['Aply16_', 'Aply21_', 'Aply22_', 'Aply23_'],\
-			'Crambe':['Cr15_', 'Cr50_', 'Cr90_'],\
-			'Dysidea':['Dys1.1_', 'Dys1.2_', 'Dys2.1_'],\
 			'Geodia_shallow':['gb2_2_', 'gb3_2_', 'gb4_2_', 'gb5_2_', 'gb6_'],\
 			'Geodia_mid':['gb1_','gb7_', 'gb8_2_','gb9_','gb10_'],\
 			'Geodia_deep':['gb126_', 'gb278_', 'gb305_'],\
