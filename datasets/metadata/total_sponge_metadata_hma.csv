@@ -1,0 +1,27 @@
+;Type;Species;Depth (m);Depth_avg (m);Location;Coordinates;Country;Sampling Year;Sequencing Year;Project;Assembly size (bp);Assembly size (>4000bp);Discarded contigs (bp);Sequencing technology
+Aply16_;Sponge Tissue;Aplysina aerophoba;7,8-12,7;10,25;Cala Montgo;N42.06.52.20, E3.10.06.52;Spain;2014;2014;BluePharmTrain;351295463;106749744;244545719;Hybrid Illumina Pacbio
+Aply21_;Sponge Tissue;Aplysina aerophoba;7,8-12,7;10,25;Cala Montgo;N42.06.52.20, E3.10.06.52;Spain;2014;2014;BluePharmTrain;320136030;80083331;240052699;Hybrid Illumina Pacbio
+Aply22_;Sponge Tissue;Aplysina aerophoba;7,8-12,7;10,25;Cala Montgo;N42.06.52.20, E3.10.06.52;Spain;2014;2014;BluePharmTrain;535157117;177599730;357557387;Hybrid Illumina Pacbio
+Aply23_;Sponge Tissue;Aplysina aerophoba;7,8-12,7;10,25;Cala Montgo;N42.06.52.20, E3.10.06.52;Spain;2014;2014;BluePharmTrain;332017277;77356499;254660778;Hybrid Illumina Pacbio
+gb1_;Sponge Tissue;Geodia barretti;400-500;450,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;974879819;176586684;798293135;Illumina
+gb2_2_;Sponge Tissue;Geodia barretti;100-200;150,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1043063205;190215582;852847623;Illumina
+gb3_2_;Sponge Tissue;Geodia barretti;100-200;150,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1069455496;231477417;837978079;Illumina
+gb4_2_;Sponge Tissue;Geodia barretti;100-200;150,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1051477253;192224515;859252738;Illumina
+gb5_2_;Sponge Tissue;Geodia barretti;100-200;150,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1023390354;245590984;777799370;Illumina
+gb6_;Sponge Tissue;Geodia barretti;100-200;150,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1069847495;211872148;857975347;Illumina
+gb7_;Sponge Tissue;Geodia barretti;400-500;450,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1139931332;231396713;908534619;Illumina
+gb8_2_;Sponge Tissue;Geodia barretti;400-500;450,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1138789627;234977952;903811675;Illumina
+gb9_;Sponge Tissue;Geodia barretti;400-500;450,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1122025566;198449686;923575880;Illumina
+gb10_;Sponge Tissue;Geodia barretti;400-500;450,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1141801721;212176550;929625171;Illumina
+gb126_;Sponge Tissue;Geodia barretti;1213,00;1213,00;Davis Strait;N62.87086o, W58.6262o;Canada;2015;2018;SponGES ;1171771136;205745299;966025837;Illumina
+gb278_;Sponge Tissue;Geodia barretti;1335,00;1335,00;Davis Strait;N62.5184o, W59.97052o;Canada;2014;2018;SponGES ;1090730356;178063294;912667062;Illumina
+gb305_;Sponge Tissue;Geodia barretti;1437,00;1437,00;Davis Strait;N61.89337o, W60.13267o;Canada;2014;2018;SponGES ;1156064801;194929599;961135202;Illumina
+gb_1_f_;Filtered Sea Water;N.a.;100-200;150,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;898793543;108331028;790462515;Illumina
+gb_2_f_;Filtered Sea Water;N.a.;100-200;150,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;882147250;104466615;777680635;Illumina
+gb_f_3_;Filtered Sea Water;N.a.;100-200;150,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;887677316;95167467;792509849;Illumina
+gb5_6_f_;Filtered Sea Water;N.a.;400-500;450,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;1559988727;160803297;1399185430;Illumina
+gb_f_9_;Filtered Sea Water;N.a.;400-500;450,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;851034585;101808751;749225834;Illumina
+gb10_f_;Filtered Sea Water;N.a.;400-500;450,00;Scengsbukt-Korsfjord;N60.13555556o, E5.11166667o;Norway;2017;2018;SponGES ;2358636882;153380161;2205256721;Illumina
+sw_7_;Filtered Sea Water;N.a.;7,8-12,7;10,25;Cala Montgo;N42.06.52.20, E3.10.06.52;Spain;2014;2014;BluePharmTrain;233519865;31376004;202143861;Illumina
+sw_8_;Filtered Sea Water;N.a.;7,8-12,7;10,25;Cala Montgo;N42.06.52.20, E3.10.06.52;Spain;2014;2014;BluePharmTrain;225073439;35815163;189258276;Illumina
+sw_9_;Filtered Sea Water;N.a.;7,8-12,7;10,25;Cala Montgo;N42.06.52.20, E3.10.06.52;Spain;2014;2014;BluePharmTrain;244273794;28814609;215459185;Illumina
