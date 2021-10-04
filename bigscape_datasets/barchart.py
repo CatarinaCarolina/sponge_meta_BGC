@@ -29,13 +29,13 @@ def get_cmds():
         'output figure file path', required=True, metavar='<file>')
 
     parser.add_argument('-m', '--metadata', dest='metadata', help=\
-        'metadata pickle', required=True, metavar='<file>')
+        'metadata xls', required=True, metavar='<file>')
 
     return parser.parse_args()
 
 
 
-def cluster_class_vis(df_pickle, new_cols, meta_pickle, out_file):
+def cluster_class_vis(df_pickle, meta_path, out_file):
     """
     A function to plot a bar chart with BGC classes
 
@@ -43,11 +43,12 @@ def cluster_class_vis(df_pickle, new_cols, meta_pickle, out_file):
     new_cols: list[str], sorted sample order
     """
 
+    meta_df = pd.read_excel(meta_path, index_col=14)
+    new_cols = meta_df['True_sample']
+    assembly_df = meta_df[['Assembly size (>4000bp)']]
+
     df = pd.read_pickle(df_pickle)
     new_df = df.reindex(new_cols)
-
-    meta_df = pd.read_pickle(meta_pickle)
-    assembly_df = meta_df[['Assembly size (>4000bp)']]
 
     colour4 = ['#000000']
     cmap3 = sns.cubehelix_palette(5, start=2.8, rot=-0.3, dark=0.3, light=0.9, reverse=False, gamma=0.8, hue=1)
@@ -88,10 +89,4 @@ if __name__ == '__main__':
     sample_metadf = cmds.metadata
     fig_path = cmds.out
 
-    sorted_samples = ['Aply16_', 'Aply21_', 'Aply22_', 'Aply23_', 'Cr15_', 'Cr50_', 'Cr90_', 'Dys1.1_',\
-                      'Dys1.2_', 'Dys2.1_', 'Pf4_', 'Pf5_', 'Pf6_', 'Pf7_', 'Pf8_', 'Pf9_', 'Pf10_', 'Pf11_',\
-                      'Pf12_', 'gb1_', 'gb2_2_', 'gb3_2_', 'gb4_2_', 'gb5_2_', 'gb6_', 'gb7_', 'gb8_2_', 'gb9_',\
-                      'gb10_', 'gb126_', 'gb278_', 'gb305_', 'gb_1_f_', 'gb_2_f_', 'gb_f_3_', 'gb5_6_f_',\
-                      'gb_f_9_', 'gb10_f_', 'sw_7_', 'sw_8_', 'sw_9_']
-
-    class_bar = cluster_class_vis(pickle_BGC_class, sorted_samples, sample_metadf, fig_path)
+    class_bar = cluster_class_vis(pickle_BGC_class, sample_metadf, fig_path)
