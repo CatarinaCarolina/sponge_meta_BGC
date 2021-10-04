@@ -9,6 +9,7 @@ A script to parse the phyloflash compare ntu table into a braycurtis sim matrix
 import argparse
 from scipy.spatial import distance
 import pandas as pd
+import copy
 
 def get_cmds():
 	"""
