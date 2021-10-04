@@ -129,8 +129,8 @@ if __name__ == '__main__':
 
 	l_taxa,l_taxa_u,l_samples,l_counts = parse_file(cmds.ntu)
 
-	sample_names = ['Aply16_def_6', 'Aply21_def_6', 'Aply22_def_6', 'Aply23_def_6', 'Cr15_def_6', 'Cr50_def_6', 'Cr90_def_6', 'Dys1_1_def_6', 'Dys1_2_def_6', 'Dys2_1_def_6', 'Pf10_def_6', 'Pf11_def_6', 'Pf12_def_6', 'Pf4_def_6', 'Pf5_def_6', 'Pf6_def_6', 'Pf7_def_6', 'Pf8_def_6', 'Pf9_def_6','gb1_def_6', 'gb2_2_def_6', 'gb3_2_def_6', 'gb4_2_def_6', 'gb5_2_def_6', 'gb6_def_6', 'gb7_def_6', 'gb8_2_def_6', 'gb9_def_6', 'gb10_def_6','gb126_def_6', 'gb278_def_6', 'gb305_def_6', 'gb1_f_def_6', 'gb2_f_def_6', 'gb3_f_def_6', 'gb5_6_f_def_6', 'gb9_f_def_6', 'gb10_f_def_6', 'sw_7def_6', 'sw_8def_6', 'sw_9def_6']
-	sample_n = ['Aply16', 'Aply21', 'Aply22', 'Aply23', 'Cr15', 'Cr50', 'Cr90', 'Dys1.1', 'Dys1.2', 'Dys2.1', 'Pf10', 'Pf11', 'Pf12', 'Pf4', 'Pf5', 'Pf6', 'Pf7', 'Pf8', 'Pf9','gb1', 'gb2_2', 'gb3_2', 'gb4_2', 'gb5_2', 'gb6', 'gb7', 'gb8_2', 'gb9', 'gb10','gb126', 'gb278', 'gb305', 'gb1_f', 'gb2_f', 'gb3_f', 'gb5_6_f', 'gb9_f', 'gb10_f', 'sw_7', 'sw_8', 'sw_9']
+	sample_names = ['Aply16_def_6', 'Aply21_def_6', 'Aply22_def_6', 'Aply23_def_6', 'Pf10_def_6', 'Pf11_def_6', 'Pf12_def_6', 'Pf4_def_6', 'Pf5_def_6', 'Pf6_def_6', 'Pf7_def_6', 'Pf8_def_6', 'Pf9_def_6','gb1_def_6', 'gb2_2_def_6', 'gb3_2_def_6', 'gb4_2_def_6', 'gb5_2_def_6', 'gb6_def_6', 'gb7_def_6', 'gb8_2_def_6', 'gb9_def_6', 'gb10_def_6','gb126_def_6', 'gb278_def_6', 'gb305_def_6', 'gb1_f_def_6', 'gb2_f_def_6', 'gb3_f_def_6', 'gb5_6_f_def_6', 'gb9_f_def_6', 'gb10_f_def_6', 'sw_7def_6', 'sw_8def_6', 'sw_9def_6']
+	sample_n = ['Aply16', 'Aply21', 'Aply22', 'Aply23', 'Pf10', 'Pf11', 'Pf12', 'Pf4', 'Pf5', 'Pf6', 'Pf7', 'Pf8', 'Pf9','gb1', 'gb2_2', 'gb3_2', 'gb4_2', 'gb5_2', 'gb6', 'gb7', 'gb8_2', 'gb9', 'gb10','gb126', 'gb278', 'gb305', 'gb1_f', 'gb2_f', 'gb3_f', 'gb5_6_f', 'gb9_f', 'gb10_f', 'sw_7', 'sw_8', 'sw_9']
 
 	ntu_ltable = build_ntu_ltable(l_taxa,l_taxa_u,l_samples,sample_names,l_counts)
 	rel_ntu_ltable = compute_relative_abundance(ntu_ltable)
