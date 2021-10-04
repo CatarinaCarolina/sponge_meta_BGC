@@ -56,9 +56,6 @@ print(pcoa.proportion_explained)
 
 pcoa_df =pcoa.samples[['PC1','PC2']]
 
-colours = ["#ffc410","#ffc411","#ffc412","#ffc413","#8a4bc9","#8a4bc10","#8a4bc11","#8a4bc12","#8a4bc13","#8a4bc14","#8a4bc15","#8a4bc16","#8a4bc17","#cedbde","#cedbde",  "#cedbde","#cedbde","#cedbde","#cedbde","#cedbde","#cedbde","#cedbde","#cedbde","#b0bcbf","#b0bcbf","#b0bcbf","#32a1ab","#32a1ab","#32a1ab","#32a1ab","#32a1ab","#32a1ab","#14cdde","#14cdde","#14cdde"]
-
-
 labels = ["Aplysina aerophoba","Aplysina aerophoba","Aplysina aerophoba","Aplysina aerophoba","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Petrocia ficiformis","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Nor","Geodia barretti Can","Geodia barretti Can","Geodia barretti Can","Seawater Atl","Seawater Atl","Seawater Atl","Seawater Atl","Seawater Atl","Seawater Atl","Seawater Med","Seawater Med","Seawater Med"]
 
 pcoa_df.insert(2,'Label', labels)
