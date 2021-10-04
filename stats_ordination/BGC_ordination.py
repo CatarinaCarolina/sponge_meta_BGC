@@ -36,11 +36,10 @@ matrix_path = cmds.matrix
 pcoa_path = cmds.out_pcoa
 perm_path = cmds.out_perm
 
-sample_n = ['Aply16_','Aply21_','Aply22_','Aply23_','Pf4_','Pf5_','Pf6_','Pf7_','Pf8_','Pf9_','Pf10_','Pf11_','Pf12_','gb1_','gb2_2_','gb3_2_','gb4_2_','gb5_2_','gb6_','gb7_','gb8_2_','gb9_','gb10_','gb126_','gb278_','gb305_','gb_1_f_','gb_2_f_','gb_f_3_','gb5_6_f_','gb_f_9_','gb10_f_','sw_7_','sw_8_','sw_9_']
-
 meta_df = pd.read_excel(meta_path, index_col=14)
-dist_df = pd.read_csv(matrix_path, sep='\t', index_col=0)
+sample_n = meta_df['True_sample']
 
+dist_df = pd.read_csv(matrix_path, sep='\t', index_col=0)
 rev_df = 1 - dist_df
 
 DM_bgc_links = skbio.stats.distance.DistanceMatrix(rev_df, ids=sample_n)
