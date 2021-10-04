@@ -48,7 +48,7 @@ def parse_binrep(binrep_file, out_file):
 			bin = bin.replace('_', ' ').replace('.fa','')
 			eco = line.split('\t')[4].split(',')
 
-			bin_eco[bin] = {'Med_SW':0,'Atl_SW':0,'Dysidea':0,'Crambe':0,'Aplysina':0,'Petrosia':0,'Geodia_shallow':0,'Geodia_mid':0,'Geodia_deep':0}
+			bin_eco[bin] = {'Med_SW':0,'Atl_SW':0,'Aplysina':0,'Petrosia':0,'Geodia_shallow':0,'Geodia_mid':0,'Geodia_deep':0}
 	
 			for seco in eco:
 				bin_eco[bin][seco] += 1
