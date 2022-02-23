@@ -6,7 +6,7 @@ A script to take 2 sets of alpha diversity values and calculate a correlation co
 """
 import argparse
 import pandas as pd
-from scipy.stats import pearsonr
+from scipy.stats import spearmanr
 
 
 def get_cmds():
@@ -38,7 +38,7 @@ meta_df = pd.read_excel(meta_path, index_col=0)
 sbgc_df = pd.read_csv(sbgc_path, sep= '\t', index_col=0)
 staxa_df = pd.read_csv(staxa_path, sep= '\t', index_col=0)
 
-all_pcorr, all_ppval = pearsonr(staxa_df['0'], sbgc_df['0'])
+all_pcorr, all_ppval = spearmanr(staxa_df['0'], sbgc_df['0'])
 print('All Pearson',all_pcorr, all_ppval)
 
 file_out = open(out_path, 'w')
