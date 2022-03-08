@@ -1,4 +1,4 @@
-# script series description for generation of the iTOL tree
+# script series description for generation of the iTOL tree (figure 4)
 
 ## GCF oriented descriptive dataset building
 
@@ -13,7 +13,7 @@ cat Network_Annotations_Full.hma.tsv | grep -v 'BGC0' | awk -F '\t' '{print $1"\
 python3 BGC_to_GFC.py -i BGC_contig_class.tsv -g mix_clustering_c0.50.hma.tsv -o BGC_contig_class_gcf_sample.tsv
 ```
 
-### extract bin
+### extract bin (requires all bin fasta files)
 
 ```
 python3 from_contig_get_bin.py -i BGC_contig_class_gcf_sample.tsv -o BGC_contig_class_gcf_sample_bin.tsv -b all_refined_bins/

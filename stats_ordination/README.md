@@ -1,6 +1,5 @@
-## Generation of PERMANOVA analysis and PcoA visualization at BGC and taxonomy level
- PcoAs generated correspond to figure 2
- Shannon diversity based statistical testing
+## Diversity visualization and statistical testing (figure 3)
+
  
 ```
 pyhton3 BGC_stats_ordination.py -i BiG-MAP/all_RPKMs_norm.tsv -m total_sponge_metadata_extra_hma.xls -o bgc_ordination.pdf -p bgc_permanova.txt -s bgc_shannon.pdf
