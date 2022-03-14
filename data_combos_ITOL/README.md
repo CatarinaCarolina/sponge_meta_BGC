@@ -1,16 +1,21 @@
 # script series description for generation of the iTOL tree (figure 4)
 
+Necessary files:
+bigscape: Network_Annotations_Full.tsv, mix_clustering_c0.50.tsv
+dRep: Cbd.csv
+gtdbtk: gtdbtk.bac120.summary.tsv
+
 ## GCF oriented descriptive dataset building
 
 ### extract BGC, contig, class
 
 ```
-cat Network_Annotations_Full.hma.tsv | grep -v 'BGC0' | awk -F '\t' '{print $1"\t"$3"\t"$5}' > BGC_contig_class.tsv
+cat Network_Annotations_Full.tsv | grep -v 'BGC0' | awk -F '\t' '{print $1"\t"$3"\t"$5}' > BGC_contig_class.tsv
 ```
 
 ### extract GCF, sample
 ```
-python3 BGC_to_GFC.py -i BGC_contig_class.tsv -g mix_clustering_c0.50.hma.tsv -o BGC_contig_class_gcf_sample.tsv
+python3 BGC_to_GFC.py -i BGC_contig_class.tsv -g mix_clustering_c0.50.tsv -o BGC_contig_class_gcf_sample.tsv
 ```
 
 ### extract bin (requires all bin fasta files)
