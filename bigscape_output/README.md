@@ -2,13 +2,17 @@
 
 make_bigscape_matrices.py generates all matrices and intermediate dicts necessary for the downstream plotting scripts
 
+Necessary files:
+general: sub_total_sponge_metadata.csv/xls
+bigscape: Network_Annotations_Full.tsv, mix_c0.50.network, mix_clustering_c0.50.tsv
+
 ```
-python3 make_bigscape_matrices.py -l Network_Annotations_Full.hma.tsv -n mix_c0.50.hma.network -b mix_clustering_c0.50.hma.tsv -o BS_AS5_ -m total_sponge_metadata_hma.csv
+python3 make_bigscape_matrices.py -l Network_Annotations_Full.tsv -n mix_c0.50.network -b mix_clustering_c0.50.tsv -o BS_AS5_ -m sub_total_sponge_metadata.csv
 ```
 
 figure 1a,1b,1e
 ```
-python3 barchart.py -b BS_AS5_BGC_class_matrix.pickle -o barchart_figure.pdf -m total_sponge_metadata_extra_hma.xls 
+python3 barchart.py -b BS_AS5_BGC_class_matrix.pickle -o barchart_figure.pdf -m sub_total_sponge_metadata.xls
 ```
 
 ```
