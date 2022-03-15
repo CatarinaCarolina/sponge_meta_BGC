@@ -9,8 +9,10 @@ Please keep in mind that these scripts have only been tested in python3.
 
 - antiSMASH v5.0
 - BiG-SCAPE
+- BiG-MAP
 - dREP
 - GTDB-Tk
+- PhyloFlash
 - Pyhton 3+
 
 ### Pyhton Packages:
