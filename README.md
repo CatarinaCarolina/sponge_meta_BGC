@@ -1,5 +1,5 @@
 
-This is the Github repository for the scrips and input files used to perform the analysis described in this publication: XXXX
+This is the Github repository for the scrips and input files used to perform the analysis described in this publication: "Comparative metagenomic analysis of biosynthetic diversity across sponge microbiomes highlights metabolic novelty, conservation and diversification"
 
 ## Requirements:
 
