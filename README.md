@@ -10,6 +10,7 @@ Please keep in mind that these scripts have only been tested in python3.
 - antiSMASH v5.0
 - BiG-SCAPE
 - dREP
+- GTDB-Tk
 - Pyhton 3+
 
 ### Pyhton Packages:
